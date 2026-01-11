@@ -14,42 +14,42 @@ Leverage the Async.js library or mongo $lookup aggregation capability to join th
 ## Requirements
 
 * Create a collection in MongoDB (Mongo Atlas) to hold reviews about existing movies.
-** A review contains the name of the reviewer, a small quote about what they thought
+  * A review contains the name of the reviewer, a small quote about what they thought
 about the movie, and their rating out of five stars.
-** The review collection should have at least one review for each movie.
-** The review can be a simple, fictitious review that you create.
+  * The review collection should have at least one review for each movie.
+  * The review can be a simple, fictitious review that you create.
 * This API should build upon the previous proxy in assignment three.
-** If the user sends a response with the query parameter reviews=true, then the
+  * If the user sends a response with the query parameter reviews=true, then the
 response should include the movie information as well as all the reviews for the
 movie. If they do not pass this in, the response should not show the reviews.
-** The review information should be appended to the response to the user.
+  * The review information should be appended to the response to the user.
   
 ## Hint: Look at $lookup on how to aggregate two collections
 * Implement GET/POST (DELETE is optional for reviews)
-** POST needs to be secured with a JWT authorization token. The Username
+  * POST needs to be secured with a JWT authorization token. The Username
 in the token should be stored with the review (indicating the user that
 submitted the review)
 * Extra Credit: Add custom analytics to return information about which movies users are
 querying.
-** Create a custom analytics policy that describes the number of times each movie has
+  * Create a custom analytics policy that describes the number of times each movie has
 been reviewed. To do this, you will have to send a number of requests for each movie.
-** Custom Dimension: Movie Name
-** Custom Metric: Requested: Value 1 (it will aggregate)
-** Custom Dimension and Metric should be sent with an Event type
-** Event Category: Genre of Movie (e.g. Western)
-** Event Action: Url Path (e.g. post /reviews)
-** Event Label: API Request for Movie Review
-** Event Value: 1
+  * Custom Dimension: Movie Name
+  * Custom Metric: Requested: Value 1 (it will aggregate)
+  * Custom Dimension and Metric should be sent with an Event type
+  * Event Category: Genre of Movie (e.g. Western)
+  * Event Action: Url Path (e.g. post /reviews)
+  * Event Label: API Request for Movie Review
+  * Event Value: 1
 
 ## Acceptance Criteria
 * Create a Postman test to test your API. You should include the following requests.
 * All tests from HW3 and
-** Valid request without the review query parameter.
-** Invalid request (for a movie not in the database) without the review query parameter.
-** Valid request with the review query parameter.
-** Valid save review method that associates a review with a movie
-** Invalid save review (movie missing from DB)
-** Export a report from Google Analytics
+  * Valid request without the review query parameter.
+  * Invalid request (for a movie not in the database) without the review query parameter.
+  * Valid request with the review query parameter.
+  * Valid save review method that associates a review with a movie
+  * Invalid save review (movie missing from DB)
+  * Export a report from Google Analytics
 
 ## Resources
 * https://github.com/daxko/universal-ga
