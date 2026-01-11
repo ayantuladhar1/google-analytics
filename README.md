@@ -25,60 +25,35 @@ movie. If they do not pass this in, the response should not show the reviews.
 ** The review information should be appended to the response to the user.
   
 ## Hint: Look at $lookup on how to aggregate two collections
-
-o Implement GET/POST (DELETE is optional for reviews)
-
-§ POST needs to be secured with a JWT authorization token. The Username
+* Implement GET/POST (DELETE is optional for reviews)
+** POST needs to be secured with a JWT authorization token. The Username
 in the token should be stored with the review (indicating the user that
 submitted the review)
-
-• Extra Credit: Add custom analytics to return information about which movies users are
+* Extra Credit: Add custom analytics to return information about which movies users are
 querying.
-
-o Create a custom analytics policy that describes the number of times each movie has
+** Create a custom analytics policy that describes the number of times each movie has
 been reviewed. To do this, you will have to send a number of requests for each movie.
+** Custom Dimension: Movie Name
+** Custom Metric: Requested: Value 1 (it will aggregate)
+** Custom Dimension and Metric should be sent with an Event type
+** Event Category: Genre of Movie (e.g. Western)
+** Event Action: Url Path (e.g. post /reviews)
+** Event Label: API Request for Movie Review
+** Event Value: 1
 
-§ Custom Dimension: Movie Name
+## Acceptance Criteria
+* Create a Postman test to test your API. You should include the following requests.
+* All tests from HW3 and
+** Valid request without the review query parameter.
+** Invalid request (for a movie not in the database) without the review query parameter.
+** Valid request with the review query parameter.
+** Valid save review method that associates a review with a movie
+** Invalid save review (movie missing from DB)
+** Export a report from Google Analytics
 
-§ Custom Metric: Requested: Value 1 (it will aggregate)
-
-o Custom Dimension and Metric should be sent with an Event type
-
-§ Event Category: Genre of Movie (e.g. Western)
-
-§ Event Action: Url Path (e.g. post /reviews)
-
-§ Event Label: API Request for Movie Review
-
-§ Event Value: 1
-
-Acceptance Criteria
-
-• Create a Postman test to test your API. You should include the following requests.
-
-• All tests from HW3 and
-
-o Valid request without the review query parameter.
-
-o Invalid request (for a movie not in the database) without the review query parameter.
-
-o Valid request with the review query parameter.
-
-o Valid save review method that associates a review with a movie
-
-o Invalid save review (movie missing from DB)
-
-o Export a report from Google Analytics
-
-Resources
-
-• https://github.com/daxko/universal-ga
-
-• https://developers.google.com/analytics/devguides/collection/analyticsjs/custom-dimsmets
-
-• https://cloud.google.com/appengine/docs/flexible/nodejs/integrating-with-analytics
-
-• https://caolan.github.io/async/index.html
-
-• https://support.google.com/analytics/answer/2709829
-
+## Resources
+* https://github.com/daxko/universal-ga
+* https://developers.google.com/analytics/devguides/collection/analyticsjs/custom-dimsmets
+* https://cloud.google.com/appengine/docs/flexible/nodejs/integrating-with-analytics
+* https://caolan.github.io/async/index.html
+* https://support.google.com/analytics/answer/2709829
