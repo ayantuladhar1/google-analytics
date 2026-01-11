@@ -1,7 +1,6 @@
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b7c844df9df0bfc8b39c?action=collection%2Fimport)
  
-Purpose
-
+# Purpose
 The purpose of this assignment is to leverage Google’s analytics policies to gather information
 about the requests being sent in by users.
 
@@ -12,24 +11,20 @@ remain separate! Do not append the reviews to the existing movie information.
 
 Leverage the Async.js library or mongo $lookup aggregation capability to join the entities.
 
-Requirements
+## Requirements
 
-• Create a collection in MongoDB (Mongo Atlas) to hold reviews about existing movies.
-
-o A review contains the name of the reviewer, a small quote about what they thought
+* Create a collection in MongoDB (Mongo Atlas) to hold reviews about existing movies.
+** A review contains the name of the reviewer, a small quote about what they thought
 about the movie, and their rating out of five stars.
-
-o The review collection should have at least one review for each movie. 
-– The review can be a simple, fictitious review that you create.
-
-• This API should build upon the previous proxy in assignment three.
-
-o If the user sends a response with the query parameter reviews=true, then the
+** The review collection should have at least one review for each movie.
+** The review can be a simple, fictitious review that you create.
+* This API should build upon the previous proxy in assignment three.
+** If the user sends a response with the query parameter reviews=true, then the
 response should include the movie information as well as all the reviews for the
 movie. If they do not pass this in, the response should not show the reviews.
-– The review information should be appended to the response to the user.
-
-§ Hint: Look at $lookup on how to aggregate two collections
+** The review information should be appended to the response to the user.
+  
+## Hint: Look at $lookup on how to aggregate two collections
 
 o Implement GET/POST (DELETE is optional for reviews)
 
